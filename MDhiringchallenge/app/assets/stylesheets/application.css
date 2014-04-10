@@ -12,10 +12,11 @@
  *= require_tree .
 */
  
-.failed {
+#failed_transaction {
 	background-color: #FF0000
 }
 
-.disputed {
+#disputed_transaction {
 	background-color: #FF5400
 }
+

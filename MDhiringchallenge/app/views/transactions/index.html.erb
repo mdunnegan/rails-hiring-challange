@@ -1,4 +1,4 @@
-<table>
+<table id="failed">
   <thead><h1>Failed Transactions</h1></thead>
   <tr>
     <th>Date Created</th>
@@ -6,20 +6,23 @@
     <th>Amount</th>
     <th>Currency</th>
     <th>Refunded</th>
+    <th>Customer Name</th>
   </tr>
-    <% @failed_transactions.each do |transaction| %>
-      <tr class="failed">
+    <% @failed_transactions.each do |transaction| %> 
+      <tr class="failed_transaction">
         <td><%= transaction.created_at %></td>
         <td><%= transaction.paid %></td>
         <td><%= transaction.amount %></td>
         <td><%= transaction.currency %></td>
         <td><%= transaction.refunded %></td>
+        <td><%= transaction.customer.full_name %></td>
+        <!-- <td><%= Customer.find_by_id(transaction.customer_id).first_name%></td> -->
       </tr>
 <% end %>
 </table>
 </br>
 
-<table>
+<table id="disputed">
   <thead><h1>Disputed Transactions</h1></thead>
   <tr>
     <th>Date Created</th>
@@ -29,18 +32,19 @@
     <th>Refunded</th>
   </tr>
     <% @disputed_transactions.each do |transaction| %>
-      <tr class="disputed">
+      <tr class="disputed_transaction">
         <td><%= transaction.created_at %></td>
         <td><%= transaction.paid %></td>
         <td><%= transaction.amount %></td>
         <td><%= transaction.currency %></td>
         <td><%= transaction.refunded %></td>
+        <td><%= transaction.customer.full_name %></td>
       </tr>
 <% end %>
 </table>
 </br>
 
-<table>
+<table id="successful">
   <thead><h1>Successful Transactions</h1></thead>
   <tr>
     <th>Date Created</th>
@@ -50,12 +54,13 @@
     <th>Refunded</th>
   </tr>
     <% @successful_transactions.each do |transaction| %>
-      <tr>
+      <tr class="successful_transaction">
         <td><%= transaction.created_at %></td>
         <td><%= transaction.paid %></td>
         <td><%= transaction.amount %></td>
         <td><%= transaction.currency %></td>
         <td><%= transaction.refunded %></td>
+        <td><%= transaction.customer.full_name %></td>
       </tr>
 <% end %>
 </table>

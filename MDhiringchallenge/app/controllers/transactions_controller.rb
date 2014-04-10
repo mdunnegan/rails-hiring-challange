@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
     @successful_transactions = Transaction.successful
     @failed_transactions = Transaction.failed 
     @disputed_transactions = Transaction.disputed
+    #@customer = Customer.find_by_id(transaction.customer_id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +19,7 @@ class TransactionsController < ApplicationController
         :successful_transactions => @successful_transactions,
         :failed_transactions => @failed_transactions,
         :disputed_transactions => @disputed_transactions
+        #:customer => @customer
       } 
     }
     end
